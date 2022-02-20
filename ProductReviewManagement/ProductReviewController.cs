@@ -75,5 +75,11 @@ namespace ProductReviewManagement
             }
         }
 
+        /// <summary>retrieve productid and review</summary>
+        public void SkifFirstFiveRecords()
+        {
+            View(_products.Skip(5).ToList());
+        }
+
     }
 }

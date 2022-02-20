@@ -21,6 +21,8 @@ namespace ProductReviewManagement
             app.CountIdGroupByReview();
             Console.WriteLine("\nRetrieveProductIdAndReview\n======================");
             app.RetrieveProductIdAndReview();
+            Console.WriteLine("\nSkip top 5 records\n======================");
+            app.SkifFirstFiveRecords();
         }
     }
 }

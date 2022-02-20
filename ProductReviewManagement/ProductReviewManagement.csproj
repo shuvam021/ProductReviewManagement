@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTableClass.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductReviewController.cs" />
     <Compile Include="Program.cs" />

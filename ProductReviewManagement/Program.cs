@@ -19,6 +19,8 @@ namespace ProductReviewManagement
             app.View(app.RetrieveBasedOnRatingAndId());
             Console.WriteLine("\nCount\n======================");
             app.CountIdGroupByReview();
+            Console.WriteLine("\nRetrieveProductIdAndReview\n======================");
+            app.RetrieveProductIdAndReview();
         }
     }
 }

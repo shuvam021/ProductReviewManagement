@@ -17,6 +17,8 @@ namespace ProductReviewManagement
             app.View(app.RetrieveTopThree());
             Console.WriteLine("\nFatch product\n======================");
             app.View(app.RetrieveBasedOnRatingAndId());
+            Console.WriteLine("\nCount\n======================");
+            app.CountIdGroupByReview();
         }
     }
 }

@@ -18,12 +18,17 @@ namespace ProductReviewManagement
         {
             _products = new List<Product>()
             {
-                new Product() {Id = 1, UserId = 1, Review = "good", Rating = 3.4, IsLike = true},
-                new Product() {Id = 2, UserId = 3, Review = "bad", Rating = 2.4, IsLike = true},
-                new Product() {Id = 3, UserId = 5, Review = "ok", Rating = 2.5, IsLike = true},
-                new Product() {Id = 4, UserId = 2, Review = "good", Rating = 4.0, IsLike = true},
-                new Product() {Id = 5, UserId = 4, Review = "great", Rating = 5.0, IsLike = true}
-            };
+                new Product() {Id = 1, UserId = 1, Review = "good", Rating = 6, IsLike = true},
+                new Product() {Id = 2, UserId = 3, Review = "bad", Rating = 2, IsLike = true},
+                new Product() {Id = 3, UserId = 5, Review = "ok", Rating = 5, IsLike = true},
+                new Product() {Id = 4, UserId = 2, Review = "good", Rating = 6, IsLike = true},
+                new Product() {Id = 5, UserId = 4, Review = "great", Rating = 8, IsLike = true},
+                new Product() {Id = 6, UserId = 1, Review = "great", Rating = 9, IsLike = true},
+                new Product() {Id = 7, UserId = 5, Review = "great", Rating = 10, IsLike = true},
+                new Product() {Id = 8, UserId = 1, Review = "good", Rating = 6, IsLike = true},
+                new Product() {Id = 9, UserId = 3, Review = "no", Rating = 1, IsLike = false},
+                new Product() {Id = 10, UserId = 2, Review = "no", Rating = 1, IsLike = false},
+           };
         }
 
         /// <summary> View All products</summary>
@@ -48,6 +53,16 @@ namespace ProductReviewManagement
         public List<Product> RetrieveBasedOnRatingAndId()
         {
             return (from product in _products where product.Rating > 3 && (product.Id == 1 || product.Id == 4 || product.Id == 9) select product).ToList();
+        }
+
+        /// <summary>count of review present for each product</summary>
+        public void CountIdGroupByReview()
+        {
+            var res = (_products.GroupBy(p => p.Rating).Select(x => new { rating = x.Key, count = x.Count() })).ToList();
+            foreach (var item in res)
+            {
+                Console.WriteLine($"NewObj(Ratting:{item.rating}, Count:{item.count})");
+            }
         }
     }
 }

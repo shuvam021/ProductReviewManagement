@@ -11,8 +11,10 @@ namespace ProductReviewManagement
         static void Main()
         {
             var app = new ProductReviewController();
-            app.Create();
+            Console.WriteLine("All Products\n======================");
             app.View();
+            Console.WriteLine("\nTop 3 based on Rating\n======================");
+            app.View(app.RetrieveTopThree());
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProductReviewManagement
 {
-    class Product
+    public class Product
     {
         public int Id { get; set; }
         public int UserId { get; set; }

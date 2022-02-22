@@ -12,11 +12,11 @@ namespace ProductReviewManagement
         public static DataTable Create()
         {
             var table = new DataTable();
-            table.Columns.Add("Id");
-            table.Columns.Add("UserId");
+            table.Columns.Add("Id", typeof(int));
+            table.Columns.Add("UserId", typeof(int));
             table.Columns.Add("Review");
-            table.Columns.Add("Rating");
-            table.Columns.Add("IsLike");
+            table.Columns.Add("Rating", typeof(double));
+            table.Columns.Add("IsLike", typeof(bool));
             table.Rows.Add(1, 1, "good", 6, true);
             table.Rows.Add(2, 3, "bad", 2, true);
             table.Rows.Add(3, 5, "ok", 5, true);
@@ -28,6 +28,32 @@ namespace ProductReviewManagement
             table.Rows.Add(9, 3, "no", 1, false);
             table.Rows.Add(10, 2, "no", 1, false);
             return table;
+        }
+        public static void List(List<Product> data)
+        {
+            foreach (var i in data) { Console.WriteLine(i); }
+        }
+        public static void RetrieveIsLikeTrueData()
+        {
+            DataTable table = Create();
+            var res = from x in table.AsEnumerable()
+                      where x.Field<bool>("IsLike") == true
+                      select x;
+
+            List<Product> productList = new List<Product>();
+            foreach (var x in res.ToList())
+            {
+                productList.Add(new Product()
+                {
+                    Id = x.Field<int>("Id"),
+                    UserId = x.Field<int>("UserId"),
+                    Review = x.Field<string>("Review"),
+                    Rating = x.Field<double>("Rating"),
+                    IsLike = x.Field<bool>("IsLike")
+                });
+            }
+
+            List(productList);
         }
     }
 }

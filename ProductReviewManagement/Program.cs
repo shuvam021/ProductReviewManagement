@@ -23,6 +23,8 @@ namespace ProductReviewManagement
             app.RetrieveProductIdAndReview();
             Console.WriteLine("\nSkip top 5 records\n======================");
             app.SkifFirstFiveRecords();
+            Console.WriteLine("\nRetrieve IsLike==True from datatable\n======================");
+            DataTableClass.RetrieveIsLikeTrueData();
         }
     }
 }

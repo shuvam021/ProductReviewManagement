@@ -29,6 +29,10 @@ namespace ProductReviewManagement
             DataTableClass.RetrieveAverageRating();
             Console.WriteLine("\nRetrieve Review contains of datatable\n======================");
             DataTableClass.RetrieveReviewContainsNice();
+            Console.WriteLine("\nRetrieve data of UserId 10\n======================");
+            DataTableClass.RetrieveDataOfCertainUserId(10);
+            Console.WriteLine();
+            DataTableClass.RetrieveDataOfCertainUserId(10, "desc");
         }
     }
 }

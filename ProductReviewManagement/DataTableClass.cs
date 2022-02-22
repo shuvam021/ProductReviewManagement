@@ -22,11 +22,11 @@ namespace ProductReviewManagement
             table.Rows.Add(3, 5, "ok", 5, true);
             table.Rows.Add(4, 2, "good", 6, true);
             table.Rows.Add(5, 4, "great", 8, true);
-            table.Rows.Add(6, 1, "great", 9, true);
-            table.Rows.Add(7, 5, "great", 10, true);
-            table.Rows.Add(8, 1, "nice", 6, true);
-            table.Rows.Add(9, 3, "no", 1, false);
-            table.Rows.Add(10, 2, "no", 1, false);
+            table.Rows.Add(6, 10, "great", 9, true);
+            table.Rows.Add(7, 10, "great", 10, true);
+            table.Rows.Add(8, 10, "nice", 6, true);
+            table.Rows.Add(9, 10, "no", 1, false);
+            table.Rows.Add(10, 10, "no", 1, false);
             return table;
         }
         public static void View(EnumerableRowCollection<DataRow> data)
@@ -65,6 +65,26 @@ namespace ProductReviewManagement
             var res= from x in Create().AsEnumerable()
                      where x.Field<string>("Review").ToLower() == "nice" 
                      select x;
+            View(res);
+        }
+        public static void RetrieveDataOfCertainUserId(int id, string order= "asc")
+        {
+            EnumerableRowCollection<DataRow> res;
+
+            if (order != null && order == "desc")
+            {
+                res = from x in Create().AsEnumerable()
+                     where x.Field<int>("UserId") == id
+                     orderby x.Field<double>("Rating") descending
+                     select x;
+            }
+            else
+            {
+                res = from x in Create().AsEnumerable()
+                      where x.Field<int>("UserId") == id
+                      orderby x.Field<double>("Rating")
+                      select x;
+            }
             View(res);
         }
     }

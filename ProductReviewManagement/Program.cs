@@ -27,6 +27,8 @@ namespace ProductReviewManagement
             DataTableClass.RetrieveIsLikeTrueData();
             Console.WriteLine("\nRetrieve Average Rating of datatable\n======================");
             DataTableClass.RetrieveAverageRating();
+            Console.WriteLine("\nRetrieve Review contains of datatable\n======================");
+            DataTableClass.RetrieveReviewContainsNice();
         }
     }
 }

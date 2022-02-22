@@ -55,5 +55,12 @@ namespace ProductReviewManagement
 
             List(productList);
         }
+        public static void RetrieveAverageRating()
+        {
+            DataTable table = Create();
+            //double avgRating = (from x in table.AsEnumerable() select x).Average(x => x.Field<double>("Rating"));
+            double avgRating = (double)table.Compute("Avg(Rating)", "");
+            Console.WriteLine($"Average ratting is : {avgRating}");
+        }
     }
 }

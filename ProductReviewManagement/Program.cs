@@ -25,6 +25,8 @@ namespace ProductReviewManagement
             app.SkifFirstFiveRecords();
             Console.WriteLine("\nRetrieve IsLike==True from datatable\n======================");
             DataTableClass.RetrieveIsLikeTrueData();
+            Console.WriteLine("\nRetrieve Average Rating of datatable\n======================");
+            DataTableClass.RetrieveAverageRating();
         }
     }
 }
